@@ -1,11 +1,12 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-controls',
   standalone: true,
   imports: [],
   templateUrl: './controls.component.html',
-  styleUrl: './controls.component.css'
+  styleUrl: './controls.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class ControlsComponent {
 
