@@ -11,6 +11,9 @@ export class ServerStatusComponent {
   currentStatus: SERVERSTATUS = SERVERSTATUS.ONLINE;
 
   constructor() {
+  }
+
+  ngOnInit() {
     setInterval(() => {
       const rnd = Math.random();
 
@@ -22,7 +25,7 @@ export class ServerStatusComponent {
         this.currentStatus = SERVERSTATUS.UNKNOWN;
       }
 
-    }, 5000)
+    }, 5000);
   }
 }
 
