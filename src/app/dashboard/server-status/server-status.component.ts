@@ -9,7 +9,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class ServerStatusComponent implements OnInit, OnDestroy {
   currentStatus: SERVERSTATUS = SERVERSTATUS.ONLINE;
-  intervalID!: NodeJS.Timeout;
+  intervalID!: ReturnType<typeof setInterval>;
   constructor() {
   }
 
