@@ -13,4 +13,8 @@ import { DashboardItemComponent } from "./dashboard/shared/dashboard-item/dashbo
 })
 export class AppComponent {
 
+  constructor() {
+    // console.log = () => { };
+  }
+
 }
