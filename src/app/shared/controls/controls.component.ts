@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ContentChild, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, Component, contentChild, ContentChild, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-controls',
@@ -14,7 +14,8 @@ import { AfterContentInit, Component, ContentChild, ElementRef, HostBinding, Hos
   }
 })
 export class ControlsComponent implements AfterContentInit {
-  @ContentChild('input') private control!: ElementRef<HTMLInputElement | HTMLTextAreaElement>
+  // @ContentChild('input') private control!: ElementRef<HTMLInputElement | HTMLTextAreaElement>;
+  private control = contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input')
   // @HostBinding('class') className = 'control'; // it will add these property bind with the host element
 
   label = input.required<string>();
@@ -29,7 +30,7 @@ export class ControlsComponent implements AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    console.log(this.control)
+    console.log(this.control())
   }
 
 }
