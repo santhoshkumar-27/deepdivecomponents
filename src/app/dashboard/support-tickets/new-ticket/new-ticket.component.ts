@@ -13,7 +13,9 @@ import { FormsModule } from '@angular/forms';
 export class NewTicketComponent {
 
 
-  onFormSubmit() {
-    console.log('form is submitted')
+  onFormSubmit(title: string, request: string) {
+    console.log('form is submitted');
+    console.log(title);
+    console.log(request);
   }
 }
