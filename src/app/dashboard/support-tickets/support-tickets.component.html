@@ -1,10 +1,16 @@
 @if (tickets.length) {
 @for (ticket of tickets; track ticket.id) {
-<p>
+<!-- <p>
     {{ticket.name}}
     {{ ticket.request}}
     {{ticket.status}}
-</p>
+</p> -->
+
+<ul>
+    <li>
+        <app-ticket />
+    </li>
+</ul>
 }
 } @else {
 <p>No request found</p>
