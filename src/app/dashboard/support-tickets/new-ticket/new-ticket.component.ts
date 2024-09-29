@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, viewChild, ViewChild, viewChildren, ViewChildren } from '@angular/core';
+import { afterNextRender, afterRender, AfterViewInit, Component, ElementRef, OnInit, viewChild, ViewChild, viewChildren, ViewChildren } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlsComponent } from "../../../shared/controls/controls.component";
 import { FormsModule } from '@angular/forms';
@@ -16,6 +16,16 @@ export class NewTicketComponent implements OnInit, AfterViewInit {
   // private form = viewChild<ElementRef<HTMLFormElement>>('form');
   // template value will definitely found
   private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
+
+  constructor() {
+    afterRender(() => {
+      console.log('afterRender');
+    });
+
+    afterNextRender(() => {
+      console.log('afterNextRender')
+    });
+  }
 
   ngOnInit(): void {
     // console.log(this.form())
