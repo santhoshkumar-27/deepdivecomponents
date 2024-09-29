@@ -1,9 +1,9 @@
 <form (ngSubmit)="onFormSubmit(titleInput.value, requestInput.value)" #form>
   <app-controls label="Title">
-    <input name="title" id="title" #titleInput />
+    <input name="title" id="title" #titleInput #input />
   </app-controls>
   <app-controls label="Request">
-    <textarea name="request" id="request" #requestInput rows="3"></textarea>
+    <textarea name="request" id="request" #requestInput rows="3" #input></textarea>
   </app-controls>
   <p>
     <button appButton>
@@ -14,3 +14,10 @@
     </button>
   </p>
 </form>
+<!-- 
+
+  #input
+  we can have same template reference variable
+  for same in order to use in the content child
+
+-->

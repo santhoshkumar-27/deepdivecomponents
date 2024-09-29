@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-controls',
@@ -13,7 +13,8 @@ import { Component, ElementRef, HostBinding, HostListener, inject, input, ViewEn
     '(click)': 'onClick()' // replacement for host listener
   }
 })
-export class ControlsComponent {
+export class ControlsComponent implements AfterContentInit {
+  @ContentChild('input') private control!: ElementRef<HTMLInputElement | HTMLTextAreaElement>
   // @HostBinding('class') className = 'control'; // it will add these property bind with the host element
 
   label = input.required<string>();
@@ -25,6 +26,10 @@ export class ControlsComponent {
   onClick() {
     console.log('clicked');
     console.log(this.el) // programmatic access for the host element
+  }
+
+  ngAfterContentInit(): void {
+    console.log(this.control)
   }
 
 }
