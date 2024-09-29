@@ -1,4 +1,4 @@
-import { Component, ElementRef, viewChild, ViewChild } from '@angular/core';
+import { Component, ElementRef, viewChild, ViewChild, viewChildren, ViewChildren } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlsComponent } from "../../../shared/controls/controls.component";
 import { FormsModule } from '@angular/forms';
