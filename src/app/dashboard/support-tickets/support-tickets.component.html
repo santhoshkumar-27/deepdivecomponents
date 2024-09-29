@@ -1,22 +1,14 @@
-@if (tickets.length) {
-@for (ticket of tickets; track ticket.id) {
-<!-- <p>
-    {{ticket.name}}
-    {{ ticket.request}}
-    {{ticket.status}}
-</p> -->
-
-<ul>
-    <li>
-        <app-ticket />
-    </li>
-</ul>
-}
-} @else {
-<p>No request found</p>
-}
-
-
-
-
-<app-new-ticket (add)="onNewTicket($event)" />
+<div>
+    <ul>
+        @for (ticket of tickets; track ticket.id) {
+        <li>
+            <app-ticket [ticket]="ticket" />
+        </li>
+        } @empty {
+        <li>No request found</li>
+        }
+    </ul>
+</div>
+<div id="new-ticket">
+    <app-new-ticket (add)="onNewTicket($event)" />
+</div>
