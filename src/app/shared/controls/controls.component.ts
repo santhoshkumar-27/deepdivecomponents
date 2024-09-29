@@ -25,12 +25,12 @@ export class ControlsComponent implements AfterContentInit {
   // it will add the listner to the host element using the host listener
   // @HostListener('click')
   onClick() {
-    console.log('clicked');
-    console.log(this.el) // programmatic access for the host element
+    // console.log('clicked');
+    // console.log(this.el) // programmatic access for the host element
   }
 
   ngAfterContentInit(): void {
-    console.log(this.control())
+    // console.log(this.control())
   }
 
 }

@@ -1,7 +1,8 @@
-import { afterNextRender, afterRender, AfterViewInit, Component, ElementRef, OnInit, viewChild, ViewChild, viewChildren, ViewChildren } from '@angular/core';
+import { afterNextRender, afterRender, AfterViewInit, Component, ElementRef, OnInit, output, Output, viewChild, ViewChild, viewChildren, ViewChildren } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlsComponent } from "../../../shared/controls/controls.component";
 import { FormsModule } from '@angular/forms';
+import { Ticket } from '../ticket.model';
 
 @Component({
   selector: 'app-new-ticket',
@@ -12,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class NewTicketComponent implements OnInit, AfterViewInit {
 
+  add = output<Ticket>();
+
   // @ViewChild('form') form!:  ElementRef<HTMLFormElement> ;
   // private form = viewChild<ElementRef<HTMLFormElement>>('form');
   // template value will definitely found
@@ -19,11 +22,11 @@ export class NewTicketComponent implements OnInit, AfterViewInit {
 
   constructor() {
     afterRender(() => {
-      console.log('afterRender');
+      // console.log('afterRender');
     });
 
     afterNextRender(() => {
-      console.log('afterNextRender')
+      // console.log('afterNextRender')
     });
   }
 
@@ -39,6 +42,13 @@ export class NewTicketComponent implements OnInit, AfterViewInit {
     console.log('form is submitted');
     console.log(title);
     console.log(request);
+
+    this.add.emit({
+      id: Date.toString(),
+      name: title,
+      request,
+      status: 'Online'
+    })
     this.form().nativeElement.reset();
   }
 }

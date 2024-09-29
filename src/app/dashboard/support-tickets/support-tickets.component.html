@@ -1,1 +1,16 @@
-<app-new-ticket />
+@if (tickets.length) {
+@for (ticket of tickets; track $index) {
+<p>
+    {{ticket.name}}
+    {{ ticket.request}}
+    {{ticket.status}}
+</p>
+}
+} @else {
+<p>No request found</p>
+}
+
+
+
+
+<app-new-ticket (add)="onNewTicket($event)" />
