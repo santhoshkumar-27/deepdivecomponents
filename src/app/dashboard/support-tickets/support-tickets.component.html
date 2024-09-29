@@ -1,5 +1,5 @@
 @if (tickets.length) {
-@for (ticket of tickets; track $index) {
+@for (ticket of tickets; track ticket.id) {
 <p>
     {{ticket.name}}
     {{ ticket.request}}
