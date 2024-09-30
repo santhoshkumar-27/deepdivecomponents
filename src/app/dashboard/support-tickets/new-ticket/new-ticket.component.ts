@@ -47,7 +47,7 @@ export class NewTicketComponent implements OnInit, AfterViewInit {
       id: Date.toString(),
       name: title,
       request,
-      status: 'Online'
+      status: 'Open'
     })
     this.form().nativeElement.reset();
   }

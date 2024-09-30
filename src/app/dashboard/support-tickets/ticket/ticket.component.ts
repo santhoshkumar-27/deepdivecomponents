@@ -1,5 +1,5 @@
-import { Component, input } from '@angular/core';
-import { Ticket } from '../ticket.model';
+import { Component, input, signal } from '@angular/core';
+import { Ticket, TicketStatus } from '../ticket.model';
 
 @Component({
   selector: 'app-ticket',
@@ -9,5 +9,13 @@ import { Ticket } from '../ticket.model';
   styleUrl: './ticket.component.css'
 })
 export class TicketComponent {
-  ticket = input.required<Ticket>()
+  ticket = input.required<Ticket>();
+  detailsVisible = signal(false);
+  status: TicketStatus = 'Open';
+
+
+
+  onToggleDetails() {
+    this.detailsVisible.update((value) => !value);
+  }
 }

@@ -5,5 +5,5 @@ export interface Ticket {
     status: TicketStatus;
 }
 
-export type TicketStatus = 'Online' | 'Offline';
+export type TicketStatus = 'Open' | 'Closed';
 // interface is shape of object
