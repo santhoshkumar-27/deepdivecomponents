@@ -9,7 +9,9 @@ import { Ticket, TicketStatus } from '../ticket.model';
   styleUrl: './ticket.component.css'
 })
 export class TicketComponent {
+  // input configurations alias, transform
   ticket = input.required<Ticket>();
+  // ouput configurations alias
   markComplete = output();
   detailsVisible = signal(false);
   ticketStatusOpen: TicketStatus = 'Open';
