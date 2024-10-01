@@ -1,8 +1,8 @@
 <article>
     <h3>
         <div [class]="{
-          'ticket-open': true,
-          'ticket-closed': false
+          'ticket-open': ticket().status == ticketStatusOpen,
+          'ticket-closed': ticket().status != ticketStatusOpen,
         }"></div>
         <button (click)="onToggleDetails()">
             <span class="text">{{ticket().name}}</span>
@@ -27,8 +27,8 @@
     @if (detailsVisible()) {
     <p>{{ticket().request}}</p>
 
-    @if (ticket().status === this.status) {
-    <p><button>Mark as completed</button></p>
+    @if (ticket().status === ticketStatusOpen) {
+    <p><button (click)="onMarkUsCompleted()">Mark as completed</button></p>
     }
     }
 </article>
