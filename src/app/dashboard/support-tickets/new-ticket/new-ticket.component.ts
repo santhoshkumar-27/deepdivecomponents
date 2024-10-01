@@ -14,6 +14,8 @@ import { Ticket } from '../ticket.model';
 export class NewTicketComponent implements OnInit, AfterViewInit {
 
   add = output<Ticket>();
+  enteredTitle = '';
+  enteredRequest = '';
 
   // @ViewChild('form') form!:  ElementRef<HTMLFormElement> ;
   // private form = viewChild<ElementRef<HTMLFormElement>>('form');
@@ -39,16 +41,18 @@ export class NewTicketComponent implements OnInit, AfterViewInit {
   }
 
   onFormSubmit(title: string, request: string) {
-    console.log('form is submitted');
-    console.log(title);
-    console.log(request);
+    // console.log('form is submitted');
+    // console.log(title);
+    // console.log(request);
 
     this.add.emit({
       id: Date.toString(),
-      name: title,
-      request,
+      name: this.enteredTitle,
+      request: this.enteredRequest,
       status: 'Open'
     })
-    this.form().nativeElement.reset();
+    // this.form().nativeElement.reset();
+    this.enteredRequest = '';
+    this.enteredTitle = '';
   }
 }
